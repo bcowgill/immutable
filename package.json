@@ -1,0 +1,23 @@
+{
+  "name": "immutable",
+  "version": "1.0.0",
+  "description": "playing with immutable data types in javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "jstest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bcowgill/immutable.git"
+  },
+  "keywords": [
+    "immutable",
+    "jstest"
+  ],
+  "author": "Brent S.A. Cowgill",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/bcowgill/immutable/issues"
+  },
+  "homepage": "https://github.com/bcowgill/immutable#readme"
+}
