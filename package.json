@@ -19,5 +19,11 @@
   "bugs": {
     "url": "https://github.com/bcowgill/immutable/issues"
   },
-  "homepage": "https://github.com/bcowgill/immutable#readme"
+  "homepage": "https://github.com/bcowgill/immutable#readme",
+  "dependencies": {
+    "mori": "^0.3.2"
+  },
+  "devDependencies": {
+    "jstest": "^1.0.5"
+  }
 }
