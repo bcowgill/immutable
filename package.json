@@ -1,5 +1,5 @@
 {
-  "name": "immutable",
+  "name": "immutableplay",
   "version": "1.0.0",
   "description": "playing with immutable data types in javascript",
   "main": "index.js",
@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/bcowgill/immutable#readme",
   "dependencies": {
+    "immutable": "^3.8.1",
     "mori": "^0.3.2"
   },
   "devDependencies": {
