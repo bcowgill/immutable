@@ -11,6 +11,28 @@ console.log('JS methods', Object.keys(JS).join(', '))
 console.log('JS.Test methods', Object.keys(JS.Test).join(', '))
 
 describe('jstest-examples', function () { with (this) { addSkip(this)
+	const Animal = new JS.Class({
+		initialize: function (name)
+		{
+			this.name = name
+		},
+
+		speak: function (things)
+		{
+			return 'My name is ' + this.name + ' and I like ' + things
+		},
+	})
+
+	const Dog = new JS.Class(Animal, {
+		speak: function (stuff)
+		{
+			return this.callSuper().toUpperCase() + '!'
+		},
+
+		huntForBones: function (garden)
+		{
+		},
+	})
 
 	before(function () { with (this) {
 		console.log('   - before block reached')
@@ -115,7 +137,7 @@ describe('jstest-examples', function () { with (this) { addSkip(this)
 		// assertInDelta(42.1, 42, epsilon, 'with failure message, not close enough')
 	}})
 
-	it('assertKindOf', function () { with (this) {
+	it('assertKindOf - basics', function () { with (this) {
 		assertKindOf('number', 53)
 		assertKindOf(Number, 53)
 		assertKindOf(Number, new Number(53))
@@ -124,13 +146,33 @@ describe('jstest-examples', function () { with (this) { addSkip(this)
 		assertKindOf('boolean', true)
 		assertKindOf('object', /^this$/)
 		assertKindOf(RegExp, /^this$/)
-		assertKindOf(JS.Class, new JS.Class())
-		assertKindOf(Object, new JS.Class())
 		assertKindOf(Error, new RangeError('test'))
-		// TODO testing inheritance
-		// console.log('JS.Class instance', util.inspect(new JS.Class()))
-		// assertKindOf(JS.Class, new JS.Module())
 		// assertKindOf(String, /^this$/)
+	}})
+
+	it('assertKindOf - JS.Class', function () { with (this) {
+		const jsc = new JS.Class()
+		assertKindOf(JS.Class, jsc)
+		assertKindOf(Object, jsc)
+		// console.log('JS.Class instance', util.inspect(jsc))
+	}})
+
+	it('assertKindOf - Animal', function () { with (this) {
+		const animal = new Animal('panther')
+		assertKindOf(Animal, animal)
+		assertKindOf(Object, animal)
+		assert(animal instanceof Animal, 'animal instanceof Animal')
+		assert(animal.isA(Animal), 'animal.isA Animal')
+		assertEqual('My name is panther and I like hunting', animal.speak('hunting'))
+		// assertKindOf(JS.Class, animal, 'does not inherit from JS.Class')
+	}})
+
+	it('assertKindOf - Dog -> Animal', function () { with (this) {
+		const animal = new Dog('rex')
+		assertKindOf(Dog, animal)
+		assertKindOf(Animal, animal)
+		assertKindOf(Object, animal)
+		assertEqual('MY NAME IS REX AND I LIKE HUNTING!', animal.speak('hunting'))
 	}})
 
 	it('assertMatch - regex', function () { with (this) {
