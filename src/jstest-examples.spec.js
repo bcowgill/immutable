@@ -1,4 +1,5 @@
 // jstest assertion examples
+// http://jstest.jcoglan.com/assertions.html
 
 const JS = require('jstest')
 

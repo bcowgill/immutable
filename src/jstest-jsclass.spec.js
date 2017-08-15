@@ -1,4 +1,5 @@
 // jsclass usage examples
+// http://jsclass.jcoglan.com/
 
 const JS = require('jstest')
 const util = require('util')
