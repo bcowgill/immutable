@@ -4,7 +4,8 @@
   "description": "playing with immutable data types in javascript",
   "main": "index.js",
   "scripts": {
-    "test": "jstest --format=spec src/jstest-skip.js `find src -name *.spec.js`"
+    "test": "jstest --format=spec src/jstest-skip.js `find src -name *.spec.js`",
+    "watch": "auto-build.sh ./test.sh src"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,7 @@
   },
   "homepage": "https://github.com/bcowgill/immutable#readme",
   "dependencies": {
+    "chalk": "^2.1.0",
     "immutable": "^3.8.1",
     "mori": "^0.3.2"
   },
