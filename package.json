@@ -24,6 +24,7 @@
   "dependencies": {
     "chalk": "^2.1.0",
     "immutable": "^3.8.1",
+    "moment": "^2.18.1",
     "mori": "^0.3.2"
   },
   "devDependencies": {
