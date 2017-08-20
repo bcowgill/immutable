@@ -2,8 +2,9 @@
 
 const JS = require('jstest')
 const util = require('util')
+const moment = require('moment')
 const immoment = require('./immoment')
-// const immoment = require('moment')
+//const immoment = moment
 
 with (JS.Test)
 {
@@ -162,7 +163,10 @@ describe('immoment', function () { with (this) { addSkip(this)
 		const when = immoment([2000,2,3])
 		const now = immoment(when)
 		assertTime(epoch, now)
-		// assertSame(now, when) // when immutable
+		if (immoment !== moment)
+		{
+			assertSame(now, when)
+		}
 	}})
 
 	it('constructor clone', function () { with (this) {
@@ -170,7 +174,10 @@ describe('immoment', function () { with (this) { addSkip(this)
 		const when = immoment([2000,2,3])
 		const now = when.clone()
 		assertTime(epoch, now)
-		// assertSame(now, when) // when immutable
+		if (immoment !== moment)
+		{
+			assertSame(now, when)
+		}
 	}})
 
 	// TODO parseZone....
